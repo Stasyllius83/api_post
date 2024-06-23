@@ -5,6 +5,14 @@ from rest_framework.serializers import ValidationError
 DOMAINS_ALLOWED = ["mail.ru", "yandex.ru"]
 
 def validate_password(value):
+    """Функция для проверки пароля (должен быть не менее 8 символов, должен включать цифры).
+
+    Args:
+        value (str): пароль
+
+    Raises:
+        serializers.ValidationError: _description_
+    """
 
     password = value["password"]
 
@@ -13,6 +21,14 @@ def validate_password(value):
 
 
 def validate_email(value):
+    """Функция для проверки почты (разрешены домены: mail.ru, yandex.ru).
+
+    Args:
+        value (str): почта
+
+    Raises:
+        serializers.ValidationError: _description_
+    """
 
     email = value["email"]
 

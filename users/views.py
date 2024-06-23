@@ -7,12 +7,22 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
 
 class UserListAPIView(generics.ListAPIView):
+    """Функция для просмотра списка всех пользователей
+
+    Args:
+        generics (_type_): _description_
+    """
     serializer_class = UserSerializer
     queryset = User.objects.all()
     permission_classes = [IsAuthenticated | IsAdminUser]
 
 
 class UserCreateAPIView(generics.CreateAPIView):
+    """Функция для создания пользователя
+
+    Args:
+        generics (_type_): _description_
+    """
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
@@ -24,6 +34,10 @@ class UserCreateAPIView(generics.CreateAPIView):
 
 
 class UserUpdateAPIView(generics.UpdateAPIView):
+    """Функция для редактирования пользователя
+    Args:
+        generics (_type_): _description_
+    """
     serializer_class = UserSerializer
     queryset = User.objects.all()
     permission_classes = [IsAuthenticated, IsAdminUser | IsOwner]
@@ -34,5 +48,10 @@ class UserUpdateAPIView(generics.UpdateAPIView):
 
 
 class UserDestroyAPIView(generics.DestroyAPIView):
+    """Функция для удаления пользователя
+
+    Args:
+        generics (_type_): _description_
+    """
     queryset = User.objects.all()
     permission_classes = [IsAdminUser]

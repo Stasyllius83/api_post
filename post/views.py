@@ -6,6 +6,11 @@ from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 
 
 class CommentCreateAPIView(generics.CreateAPIView):
+    """Функция для создания комментария
+
+    Args:
+        generics (_type_): _description_
+    """
     serializer_class = CommentSerializer
     permission_classes = [IsAuthenticated]
 
@@ -16,23 +21,42 @@ class CommentCreateAPIView(generics.CreateAPIView):
 
 
 class CommentListAPIView(generics.ListAPIView):
+    """Функция для просмотра списка всех комментариев
+
+    Args:
+        generics (_type_): _description_
+    """
     serializer_class = CommentSerializer
     queryset = Comment.objects.all()
     permission_classes = [AllowAny]
 
 
 class CommentUpdateView(generics.UpdateAPIView):
+    """Функция для редактирования комментария
+    Args:
+        generics (_type_): _description_
+    """
     serializer_class = CommentSerializer
     queryset = Comment.objects.all()
     permission_classes = [IsAuthenticated, IsAdminUser | IsOwner]
 
 
 class CommentDestroyView(generics.DestroyAPIView):
+    """Функция для удаления комментария
+
+    Args:
+        generics (_type_): _description_
+    """
     queryset = Comment.objects.all()
     permission_classes = [IsAuthenticated, IsAdminUser | IsOwner]
 
 
 class PostCreateAPIView(generics.CreateAPIView):
+    """Функция для создания поста
+
+    Args:
+        generics (_type_): _description_
+    """
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated]
 
@@ -43,17 +67,31 @@ class PostCreateAPIView(generics.CreateAPIView):
 
 
 class PostListAPIView(generics.ListAPIView):
+    """Функция для просмотра списка всех постов
+
+    Args:
+        generics (_type_): _description_
+    """
     serializer_class = PostSerializer
     queryset = Post.objects.all()
     permission_classes = [AllowAny]
 
 
 class PostUpdateView(generics.UpdateAPIView):
+    """Функция для редактирования поста
+    Args:
+        generics (_type_): _description_
+    """
     serializer_class = PostSerializer
     queryset = Post.objects.all()
     permission_classes = [IsAuthenticated, IsAdminUser | IsOwner]
 
 
 class PostDestroyView(generics.DestroyAPIView):
+    """Функция для удаления поста
+
+    Args:
+        generics (_type_): _description_
+    """
     queryset = Post.objects.all()
     permission_classes = [IsAuthenticated, IsAdminUser | IsOwner]

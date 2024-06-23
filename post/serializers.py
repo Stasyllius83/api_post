@@ -13,10 +13,15 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
-
+    """
+    Сериализатор для пользователя
+    """
     class Meta:
         model = Post
         fields = '__all__'
+        """
+        Дополнительная валидация для сериализатора
+        """
         validators = [
         validate_age,
         forbidden_words,
